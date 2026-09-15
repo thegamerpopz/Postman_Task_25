@@ -1,0 +1,99 @@
+3.691841 M parameters
+step 0: train loss 4.6422, val loss 4.6422
+step 500: train loss 1.8449, val loss 1.9554
+step 1000: train loss 1.5780, val loss 1.7550
+step 1500: train loss 1.4697, val loss 1.6686
+step 2000: train loss 1.4107, val loss 1.6132
+step 2500: train loss 1.3634, val loss 1.5807
+step 3000: train loss 1.3284, val loss 1.5678
+step 3500: train loss 1.3022, val loss 1.5462
+step 4000: train loss 1.2757, val loss 1.5374
+step 4500: train loss 1.2550, val loss 1.5331
+step 4999: train loss 1.2392, val loss 1.5293
+
+This knifes dead vainst it;
+I am likew a sludgemonious makes logs,
+And not brother all harmowl!
+Prantage way be corruption bids to straight:
+You will hake a monthster'd to bear e'er
+And to this royard his well ping, and here,
+For that Neck was lodged that rail live.
+By God's reportign'd up the sinutes, and make them both,
+With thy all that thee het thee thhough of this
+Wherein head; I pray to my mistress ringman, our hour world not.
+How shall to Rome, rifroward Willian,
+Nor hath not yet and coul
+Dense Model
+
+step 0: train loss 4.5626, val loss 4.5567
+step 500: train loss 1.8356, val loss 1.9456
+step 1000: train loss 1.5753, val loss 1.7486
+step 1500: train loss 1.4678, val loss 1.6672
+step 2000: train loss 1.4028, val loss 1.6123
+step 2500: train loss 1.3583, val loss 1.5847
+step 3000: train loss 1.3258, val loss 1.5593
+step 3500: train loss 1.2969, val loss 1.5400
+step 4000: train loss 1.2738, val loss 1.5315
+step 4500: train loss 1.2520, val loss 1.5243
+step 4999: train loss 1.2328, val loss 1.5174
+
+MARCIUS:
+Md it and will perform'd.
+
+CORIOLANUS:
+Hath you, saw a down.
+
+ANGELO:
+Hastops bona far?
+
+LEO:
+'Tis fair For our friolly painted you,
+I beseem yourself; for your calls, and each asking? hath
+I was not relicts hays new his course; and
+Discourse; I do think my change on'd,
+Some withins justing royal stones so pluck.
+A knowing, is the spent protess; the artill find
+Musicils of his teck the rares, to praisons
+Ditable liss at oppoir to their hones, they dear?
+
+FRIAR LAURENCE:
+Ha! low's sins t
+
+BigBird Model
+
+
+step 0: train loss 4.4922, val loss 4.4925
+step 500: train loss 1.7218, val loss 1.8664
+step 1000: train loss 1.5021, val loss 1.6836
+step 1500: train loss 1.4075, val loss 1.6095
+step 2000: train loss 1.3512, val loss 1.5741
+step 2500: train loss 1.3066, val loss 1.5416
+step 3000: train loss 1.2761, val loss 1.5245
+step 3500: train loss 1.2479, val loss 1.5171
+step 4000: train loss 1.2219, val loss 1.5070
+step 4500: train loss 1.1986, val loss 1.5072
+step 4999: train loss 1.1774, val loss 1.5049
+
+Nor of Caceaulina,
+More there--, my lord
+Upon them forgivener, those food fresh news.
+You chase she kerith her care not unwield;
+Not 'morn to hear him here? cet breath,
+And when he should by ours for his by
+charter: let met, and he own to joy?
+Yes, my voscod world bark.
+
+BRUTUS:
+Why, that we, you
+victors!
+
+CAMILLO:
+Madam, contrary, sir, mine own you affection: here,
+Were this there, to quickland in hereaten.
+
+MERCUTIO:
+I possip myself a trant some men't
+As yon put yet inclus worship, all do.
+
+Sh
+Sliding Window Model
