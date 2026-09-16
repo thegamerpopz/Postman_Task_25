@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-
+from masking_functions import *
 # hyperparameters
 mask_type="bigbird"
 batch_size = 64 # how many independent sequences will we process in parallel?
@@ -20,36 +20,6 @@ attn_block_size = 16      # number of tokens in one sparse-attention block
 num_global = 1     # first 1 block is global
 num_local_blocks = 1      # attend to 1 nearby block
 num_random = 2     # attend to 2 random previous blocks
-
-
-
-def bigbird_mask():
-    masks=torch.zeros(block_size, block_size)
-    for i in range(block_size):
-        for j in range(max(0,i+1-window_size),i+1):
-                masks[i,j]=1
-    for i in range(1,block_size):
-        cond=min(i,num_random)
-        pos=torch.randperm(i)[:cond]
-        masks[i,pos]=1
-    masks[:num_global, :] = 1
-    masks[:, :num_global] = 1
-    causal = torch.tril(torch.ones(block_size, block_size))
-    masks = masks * causal  ##so that global doesnt see futur tokens and decoder only
-    return masks
-
-def causal_mask():
-    return torch.tril(torch.ones(block_size, block_size))
-
-def sliding_window_mask():
-    masks=torch.zeros(block_size, block_size)
-    for i in range(block_size):
-        for j in range(max(0,i+1-window_size),i+1):
-            masks[i,j]=1
-    return masks
-
-
-# wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
 with open('input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
@@ -222,27 +192,27 @@ model = GPTLanguageModel()
 m = model.to(device)
 # print the number of parameters in the model
 print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
+if __name__=="__main__":
+    # create a PyTorch optimizer
+    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
-# create a PyTorch optimizer
-optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+    for iter in range(max_iters):
 
-for iter in range(max_iters):
+        # every once in a while evaluate the loss on train and val sets
+        if iter % eval_interval == 0 or iter == max_iters - 1:
+            losses = estimate_loss()
+            print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
 
-    # every once in a while evaluate the loss on train and val sets
-    if iter % eval_interval == 0 or iter == max_iters - 1:
-        losses = estimate_loss()
-        print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+        # sample a batch of data
+        xb, yb = get_batch('train')
 
-    # sample a batch of data
-    xb, yb = get_batch('train')
+        # evaluate the loss
+        logits, loss = model(xb, yb)
+        optimizer.zero_grad(set_to_none=True)
+        loss.backward()
+        optimizer.step()
 
-    # evaluate the loss
-    logits, loss = model(xb, yb)
-    optimizer.zero_grad(set_to_none=True)
-    loss.backward()
-    optimizer.step()
-
-# generate from the model
-context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
-#open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+    # generate from the model
+    context = torch.zeros((1, 1), dtype=torch.long, device=device)
+    print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+    #open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
